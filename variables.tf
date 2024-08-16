@@ -34,7 +34,8 @@ variable "apis" {
     "run.googleapis.com",
     "artifactregistry.googleapis.com",
     "containerregistry.googleapis.com",
-    "compute.googleapis.com"
+    "compute.googleapis.com",
+    "cloudfunctions.googleapis.com"
   ]
 }
 
