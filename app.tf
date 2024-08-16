@@ -23,8 +23,8 @@ resource "google_storage_bucket" "default" {
 
 data "archive_file" "default" {
   type        = "zip"
-  output_path = "/tmp/function-source.zip"
-  source_dir  = "src/"
+  output_path = "function-source.zip"
+  source_dir  = "src/*"
 }
 
 resource "google_storage_bucket_object" "default" {
