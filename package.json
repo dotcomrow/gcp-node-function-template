@@ -3,13 +3,13 @@
     "description": "NodeJS GCP log processor",
     "version": "1.0.0",
     "private": true,
-    "main": "build/index.js",
+    "main": "dist/index.ts",
     "type": "module",
     "scripts": {
         "build": "tsc",
-        "start": "functions-framework --target=TypescriptFunction",
+        "start": "functions-framework --target=onMessage",
         "prestart": "npm run build",
-        "gcp-build": "tsc src/index.ts --outFile build/index.js --module amd"
+        "gcp-build": "npm run build"
     },
     "engines": {
         "node": ">=18.0.0"

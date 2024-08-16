@@ -13,7 +13,7 @@ interface PubSubData {
   };
 }
 
-ff.cloudEvent<PubSubData>('TypescriptFunction', async ce => {
+ff.cloudEvent<PubSubData>('onMessage', async ce => {
   try {
     console.log(ce.data?.message.messageId);
   } catch (e) {
