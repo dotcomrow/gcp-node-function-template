@@ -3,13 +3,13 @@
     "description": "NodeJS GCP log processor",
     "version": "1.0.0",
     "private": true,
-    "main": "index.ts",
+    "main": "build/index.js",
     "type": "module",
     "scripts": {
         "build": "tsc",
         "start": "functions-framework --target=TypescriptFunction",
         "prestart": "npm run build",
-        "gcp-build": "npm run build"
+        "gcp-build": "tsc src/index.ts --outFile build/index.js --module amd"
     },
     "engines": {
         "node": ">=18.0.0"
@@ -22,6 +22,7 @@
         "npm-gcp-logging": "^1.0.58",
         "npm-gcp-token": "^1.0.16",
         "serialize-error": "^11.0.3",
+        "ts-node": "^10.9.2",
         "uuid": "^10.0.0"
     },
     "devDependencies": {
