@@ -41,6 +41,12 @@ resource "google_project_iam_member" "secret_manager_grant" {
   member  = "serviceAccount:${data.google_compute_default_service_account.default.email}"
 }
 
+resource "google_project_iam_member" "cloud_functions_permissions" {
+  project = var.common_project_id
+  role    = "roles/cloudfunctions.admin"
+  member  = "serviceAccount:${data.google_compute_default_service_account.default.email}"
+}
+
 data "google_iam_policy" "noauth" {
   binding {
     role = "roles/run.invoker"
