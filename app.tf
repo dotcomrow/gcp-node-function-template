@@ -24,7 +24,7 @@ resource "google_storage_bucket" "default" {
 data "archive_file" "default" {
   type        = "zip"
   output_path = "function-source.zip"
-  source_dir  = "${path.module}/src"
+  source_dir  = "${path.module}"
 }
 
 resource "google_storage_bucket_object" "default" {
@@ -42,9 +42,7 @@ resource "google_cloudfunctions2_function" "default" {
   build_config {
     runtime     = "nodejs18"
     entry_point = "onMessage" # Set the entry point
-    # environment_variables = {
-    #   BUILD_CONFIG_TEST = "build_test"
-    # }
+    
     source {
       storage_source {
         bucket = google_storage_bucket.default.name
