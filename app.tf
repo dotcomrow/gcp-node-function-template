@@ -15,6 +15,7 @@ resource "google_pubsub_topic" "default" {
 }
 
 resource "google_storage_bucket" "default" {
+  project = google_project.project.project_id
   name                        = "${random_id.bucket_prefix.hex}-${var.project_id}-source-bucket" # Every bucket name must be globally unique
   location                    = "US"
   uniform_bucket_level_access = true
