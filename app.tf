@@ -4,11 +4,13 @@ resource "random_id" "bucket_prefix" {
 
 
 resource "google_service_account" "default" {
+  project = google_project.project.project_id
   account_id   = var.project_id
   display_name = "${var.project_id}-service-account"
 }
 
 resource "google_pubsub_topic" "default" {
+  project = google_project.project.project_id
   name = "${var.project_id}-topic"
 }
 
