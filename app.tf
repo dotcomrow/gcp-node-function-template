@@ -7,11 +7,15 @@ resource "google_service_account" "default" {
   project = google_project.project.project_id
   account_id   = var.project_id
   display_name = "${var.project_id}-service-account"
+
+  depends_on = [ data.google_compute_default_service_account.default ]
 }
 
 resource "google_pubsub_topic" "default" {
   project = google_project.project.project_id
   name = "${var.project_id}-topic"
+
+  depends_on = [ data.google_compute_default_service_account.default ]
 }
 
 resource "google_storage_bucket" "default" {
@@ -19,6 +23,8 @@ resource "google_storage_bucket" "default" {
   name                        = "${random_id.bucket_prefix.hex}-${var.project_id}-source-bucket" # Every bucket name must be globally unique
   location                    = "US"
   uniform_bucket_level_access = true
+
+  depends_on = [ data.google_compute_default_service_account.default ]
 }
 
 data "archive_file" "default" {
@@ -75,4 +81,6 @@ resource "google_cloudfunctions2_function" "default" {
     pubsub_topic   = google_pubsub_topic.default.id
     retry_policy   = "RETRY_POLICY_RETRY"
   }
+
+  depends_on = [ google_storage_bucket_object.default ]
 }
