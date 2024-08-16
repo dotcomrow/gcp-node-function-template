@@ -4,12 +4,6 @@ variable "region" {
   nullable = false
 }
 
-variable "project_name" {
-  description = "The name of the project to create"
-  type        = string
-  nullable = false
-}
-
 variable "project_id" {
   description = "The project id to create"
   type        = string
