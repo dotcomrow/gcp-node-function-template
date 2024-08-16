@@ -33,6 +33,7 @@ resource "google_storage_bucket_object" "default" {
 }
 
 resource "google_cloudfunctions2_function" "default" {
+  project = google_project.project.project_id
   name        = "${var.project_id}-function"
   location    = var.region
   description = "${var.project_id}-function"
