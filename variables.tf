@@ -22,12 +22,6 @@ variable "gcp_org_id" {
   nullable = false
 }
 
-variable "bigquery_secret" {
-  description = "Bigquery secret to use for the service account"
-  type        = string
-  nullable = false
-}
-
 variable "apis" {
   description = "The list of apis to enable"  
   type        = list(string)
