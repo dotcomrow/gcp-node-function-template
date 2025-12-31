@@ -18,9 +18,9 @@
     "license": "Apache-2.0",
     "dependencies": {
         "@google-cloud/functions-framework": "^3.4.2",
-        "axios": "1.7.2",
-        "npm-gcp-logging": "^1.0.58",
-        "npm-gcp-token": "^1.0.16",
+        "axios": "1.13.2",
+        "npm-gcp-logging": "^1.0.62",
+        "npm-gcp-token": "^1.0.19",
         "serialize-error": "^11.0.3",
         "ts-node": "^10.9.2",
         "uuid": "^10.0.0"
